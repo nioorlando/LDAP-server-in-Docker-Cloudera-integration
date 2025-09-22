@@ -28,3 +28,22 @@ LDAPTLS_CACERT=certs/rootCA.crt ldapwhoami -x -H ldaps://ldap.local:636   -D "ui
 - End‑to‑end **Cloudera Manager external authentication** configuration (LDAPS)
 
 See the full guide in [`ldap_docker_setup.md`](ldap_docker_setup.md).
+
+## 
+```text
+cloudera-ldap-docker/
+├─ README.md                # rename dari README_LDAP.md kalau mau jadi root readme
+├─ ldap_docker_setup.md
+├─ compose/
+│  └─ docker-compose.yml
+├─ ldif/
+│  ├─ 00-base.ldif
+│  ├─ 10-service-account.ldif
+│  ├─ 20-trainees-group.ldif
+│  └─ 30-users-sample.ldif
+├─ scripts/
+│  └─ rootCA.crt   
+├─ certs/
+│  └─ README.md          # opsional; plus ldap.crt/ldap.key jika pakai LDAPS
+└─ images/
+```
