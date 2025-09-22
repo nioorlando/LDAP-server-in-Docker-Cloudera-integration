@@ -18,7 +18,7 @@ sudo cp certs/rootCA.crt /etc/pki/ca-trust/source/anchors/ldap-rootCA.crt
 sudo update-ca-trust extract
 
 # 3) Verify LDAPS bind using the service account
-LDAPTLS_CACERT=certs/rootCA.crt ldapwhoami -x -H ldaps://ldap.local:636   -D "uid=ldapbind,ou=service,dc=training,dc=local" -w "(passwordnya)"
+LDAPTLS_CACERT=certs/rootCA.crt ldapwhoami -x -H ldaps://ldap.local:636   -D "uid=ldapbind,ou=service,dc=training,dc=local" -w "(password)"
 ```
 
 ## What you get
