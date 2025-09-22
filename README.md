@@ -29,10 +29,10 @@ LDAPTLS_CACERT=certs/rootCA.crt ldapwhoami -x -H ldaps://ldap.local:636   -D "ui
 
 See the full guide in [`ldap_docker_setup.md`](ldap_docker_setup.md).
 
-## 
+## Architecture
 ```text
 cloudera-ldap-docker/
-├─ README.md                # rename dari README_LDAP.md kalau mau jadi root readme
+├─ README.md               
 ├─ ldap_docker_setup.md
 ├─ compose/
 │  └─ docker-compose.yml
@@ -44,6 +44,6 @@ cloudera-ldap-docker/
 ├─ scripts/
 │  └─ rootCA.crt   
 ├─ certs/
-│  └─ README.md          # opsional; plus ldap.crt/ldap.key jika pakai LDAPS
+│  └─ README.md         
 └─ images/
 ```
