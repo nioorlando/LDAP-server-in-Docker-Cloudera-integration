@@ -1,0 +1,9 @@
+dn: cn=trainee01,ou=people,dc=training,dc=local
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+cn: trainee01
+sn: trainee01
+uid: trainee01
+mail: trainee01@training.local
+userPassword: {SSHA}(hash_password)

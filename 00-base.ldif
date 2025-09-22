@@ -1,0 +1,11 @@
+dn: ou=service,dc=training,dc=local
+objectClass: organizationalUnit
+ou: service
+
+dn: ou=people,dc=training,dc=local
+objectClass: organizationalUnit
+ou: people
+
+dn: ou=groups,dc=training,dc=local
+objectClass: organizationalUnit
+ou: groups

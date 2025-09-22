@@ -1,0 +1,5 @@
+dn: cn=trainees,ou=groups,dc=training,dc=local
+objectClass: groupOfNames
+cn: trainees
+member: cn=trainee01,ou=people,dc=training,dc=local
+member: cn=trainee02,ou=people,dc=training,dc=local
