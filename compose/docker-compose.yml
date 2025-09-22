@@ -1,0 +1,39 @@
+version: "3.8"
+services:
+  openldap:
+    image: osixia/openldap:1.5.0
+    container_name: openldap
+    environment:
+      LDAP_ORGANISATION: "Training LDAP"
+      LDAP_DOMAIN: "training.local"
+      LDAP_BASE_DN: "dc=training,dc=local"
+      LDAP_ADMIN_PASSWORD: "admin_password"   # change to secure password
+      LDAP_CONFIG_PASSWORD: "config_password" # change to secure password
+      LDAP_READONLY_USER: "false"
+      LDAP_TLS: "true"
+      LDAP_TLS_CRT_FILENAME: "ldap.crt"
+      LDAP_TLS_KEY_FILENAME: "ldap.key"
+      LDAP_TLS_CA_CRT_FILENAME: "rootCA.crt"
+      LDAP_TLS_ENFORCE: "false"
+      LDAP_TLS_VERIFY_CLIENT: "try"
+    ports:
+      - "389:389"
+      - "636:636"
+    volumes:
+      - ./data/slapd/database:/var/lib/ldap
+      - ./data/slapd/config:/etc/ldap/slapd.d
+      - ./certs:/container/service/slapd/assets/certs:ro
+      - ./ldif:/container/service/slapd/assets/config/bootstrap/ldif/custom:ro
+    restart: unless-stopped
+
+  phpldapadmin:
+    image: osixia/phpldapadmin:0.9.0
+    container_name: phpldapadmin
+    environment:
+      PHPLDAPADMIN_HTTPS: "false"
+      PHPLDAPADMIN_LDAP_HOSTS: "openldap"
+    ports:
+      - "8080:80"
+    depends_on:
+      - openldap
+    restart: unless-stopped
